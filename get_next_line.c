@@ -6,7 +6,7 @@
 /*   By: wrolanda <wrolanda@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/20 13:30:16 by wrolanda          #+#    #+#             */
-/*   Updated: 2021/11/26 19:04:07 by wrolanda         ###   ########.fr       */
+/*   Updated: 2021/12/06 13:01:26 by wrolanda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,15 +19,16 @@ char	*get_next_line(int fd)
 	size_t		BUFFER_SIZE;
 	size_t		num_byte_read;
 
+	BUFFER_SIZE = 3;
 	if (fd < 0 || !res_line || BUFFER_SIZE <= 0)
-		return (-1);
+		return (0);
 	res_line = (char *)malloc(sizeof(char) * 1000);
 	if (res_line == NULL)
 		return (NULL);
 	res_line[0] = '\0';
-	BUFFER_SIZE = 3;
+	//BUFFER_SIZE = 3;
 	//int	i = 0;
-	while (num_byte_read > 0 && !(ft_strchr(line, '\n')))
+	while (num_byte_read > 0 && !(ft_strchr(res_line, '\n')))
 	{
 		buf = (char *)malloc(sizeof(char) * BUFFER_SIZE);
 		if (buf == NULL)
@@ -37,7 +38,7 @@ char	*get_next_line(int fd)
 		num_byte_read = ft_strlcat(res_line, buf, BUFFER_SIZE + 1);
 		free (buf);
 	}
-	return (line);
+	return (res_line);
 }
 /*ssize_t read(int fd, void *buf, size_t count);*/
 

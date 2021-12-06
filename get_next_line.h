@@ -6,7 +6,7 @@
 /*   By: wrolanda <wrolanda@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/20 13:31:16 by wrolanda          #+#    #+#             */
-/*   Updated: 2021/11/25 19:57:58 by wrolanda         ###   ########.fr       */
+/*   Updated: 2021/12/06 13:48:37 by wrolanda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,9 @@
 
 /*for malloc*/
 # include <stdlib.h>
+
+/*for max min value of type variables*/
+# include <limits.h>
 char	*get_next_line(int fd);
 int		ft_strlen(char *str);
 size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize);

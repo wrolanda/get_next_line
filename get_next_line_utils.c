@@ -6,7 +6,7 @@
 /*   By: wrolanda <wrolanda@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/20 13:31:01 by wrolanda          #+#    #+#             */
-/*   Updated: 2021/11/25 19:09:31 by wrolanda         ###   ########.fr       */
+/*   Updated: 2021/11/25 19:57:08 by wrolanda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -148,4 +148,24 @@ char	*ft_strjoin(char const *s1, char const *s2)
 		return (NULL);
 	j = ft_strlcat(newstr, s1, i + 1) + ft_strlcat(newstr, s2, i + 1);
 	return (newstr);
+}
+
+/*strchr, strrchr -- locate character in string
+DESCRIPTION
+	The strchr() function locates the first occurrence of c (converted to a
+	char) in the string pointed to by s.  The terminating null character is
+	considered to be part of the string; therefore if c is `\0', the func-
+	tions locate the terminating `\0'.*/
+
+char	*ft_strchr(const char *s, int c)
+{
+	while (*s != '\0')
+	{
+		if (*s == (char) c)
+			return ((char *)s);
+		s++;
+	}
+	if (c == '\0')
+		return ((char *)s);
+	return ((char *)0);
 }

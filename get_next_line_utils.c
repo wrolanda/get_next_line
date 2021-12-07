@@ -6,7 +6,7 @@
 /*   By: wrolanda <wrolanda@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/20 13:31:01 by wrolanda          #+#    #+#             */
-/*   Updated: 2021/12/06 15:34:34 by wrolanda         ###   ########.fr       */
+/*   Updated: 2021/12/07 17:54:43 by wrolanda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,28 +24,18 @@ int	ft_strlen(char *str)
 	return (i);
 }
 
-/*memset - fill a byte string with a byte value
-DESCRIPTION
-	The memset() function writes len bytes of value c (converted to an
-	unsigned char) to the string b.*/
-void	*ft_memset(void *b, int c, size_t len)
+void	ft_bzero(void *s, size_t len)
 {
 	size_t			i;
 	unsigned char	*str;
 
-	str = b;
+	str = s;
 	i = 0;
 	while (i < len)
 	{
-		str[i] = c;
+		str[i] = 0;
 		i++;
 	}
-	return (b);
-}
-
-void	ft_bzero(void *s, size_t n)
-{
-	ft_memset(s, 0, n);
 }
 
 /*calloc - memory allocation.

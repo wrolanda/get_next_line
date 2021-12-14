@@ -3,14 +3,36 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wrolanda < wrolanda@student.21-school.r    +#+  +:+       +#+        */
+/*   By: wrolanda <wrolanda@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/20 13:31:01 by wrolanda          #+#    #+#             */
-/*   Updated: 2021/12/13 16:16:06 by wrolanda         ###   ########.fr       */
+/*   Updated: 2021/12/14 15:25:07 by wrolanda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
+
+/*strchr, strrchr -- locate character in string
+DESCRIPTION
+	The strchr() function locates the first occurrence of c (converted to a
+	char) in the string pointed to by s.  The terminating null character is
+	considered to be part of the string; therefore if c is `\0', the func-
+	tions locate the terminating `\0'.*/
+
+char	*ft_strchr(const char *s, int c)
+{
+	if (!s)
+		return (0);
+	while (*s != '\0')
+	{
+		if (*s == (char) c)
+			return ((char *)s);
+		s++;
+	}
+	if (c == '\0')
+		return ((char *)s);
+	return ((char *)0);
+}
 
 int	ft_strlen(char *str)
 {
@@ -24,30 +46,6 @@ int	ft_strlen(char *str)
 	return (i);
 }
 
-/*memset - fill a byte string with a byte value
-DESCRIPTION
-	The memset() function writes len bytes of value c (converted to an
-	unsigned char) to the string b.*/
-void	*ft_memset(void *b, int c, size_t len)
-{
-	size_t			i;
-	unsigned char	*str;
-
-	str = b;
-	i = 0;
-	while (i < len)
-	{
-		str[i] = c;
-		i++;
-	}
-	return (b);
-}
-
-void	ft_bzero(void *s, size_t n)
-{
-	ft_memset(s, 0, n);
-}
-
 /*calloc - memory allocation.
 	The calloc() function contiguously allocates
 	enough space for count objectsthat are size 
@@ -57,12 +55,20 @@ void	ft_bzero(void *s, size_t n)
 */
 void	*ft_calloc(size_t count, size_t size)
 {
-	void	*p;
+	void			*p;
+	size_t			i;
+	unsigned char	*str;
 
 	p = (void *)malloc(size * count);
 	if (p == (void *)0)
 		return ((void *)0);
-	ft_bzero(p, count * size);
+	str = p;
+	i = 0;
+	while (i < (count * size))
+	{
+		str[i] = 0;
+		i++;
+	}
 	return (p);
 }
 
@@ -131,24 +137,26 @@ char	*ft_strjoin(char *s1, char *s2)
 	return (newstr);
 }
 
-/*strchr, strrchr -- locate character in string
+/*memset - fill a byte string with a byte value
 DESCRIPTION
-	The strchr() function locates the first occurrence of c (converted to a
-	char) in the string pointed to by s.  The terminating null character is
-	considered to be part of the string; therefore if c is `\0', the func-
-	tions locate the terminating `\0'.*/
-
-char	*ft_strchr(const char *s, int c)
+	The memset() function writes len bytes of value c (converted to an
+	unsigned char) to the string b.*/
+/*void	*ft_memset(void *b, int c, size_t len)
 {
-	if (!s)
-		return (0);
-	while (*s != '\0')
+	size_t			i;
+	unsigned char	*str;
+
+	str = b;
+	i = 0;
+	while (i < len)
 	{
-		if (*s == (char) c)
-			return ((char *)s);
-		s++;
+		str[i] = c;
+		i++;
 	}
-	if (c == '\0')
-		return ((char *)s);
-	return ((char *)0);
+	return (b);
 }
+
+void	ft_bzero(void *s, size_t n)
+{
+	ft_memset(s, 0, n);
+}*/

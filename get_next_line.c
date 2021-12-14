@@ -1,16 +1,15 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line2.c                                   :+:      :+:    :+:   */
+/*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wrolanda < wrolanda@student.21-school.r    +#+  +:+       +#+        */
+/*   By: wrolanda <wrolanda@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/26 14:34:25 by wrolanda          #+#    #+#             */
-/*   Updated: 2021/12/13 16:00:10 by wrolanda         ###   ########.fr       */
+/*   Updated: 2021/12/14 15:45:56 by wrolanda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/*static = NULL*/
 /*	DESCRIPTION
 **	function which returns a line read from a file descriptor.
 **	PARAMETERS
@@ -116,7 +115,7 @@ char	*get_next_line(int fd)
 	return (res_line);
 }
 
-#include <stdio.h>
+/*#include <stdio.h>
 int	main(void)
 {
 	int		fd;
@@ -133,4 +132,4 @@ int	main(void)
 		i++;
 	}
 	close(fd);
-}
+}*/

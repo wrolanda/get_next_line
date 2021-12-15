@@ -103,7 +103,7 @@ char	*ft_rest_st_line(char *st_line)
 char	*get_next_line(int fd)
 {
 	char		*res_line;
-	static char	*st_line[4096];
+	static char	*st_line[OPEN_MAX];
 
 	if (fd < 0 || BUFFER_SIZE <= 0 || BUFFER_SIZE >= INT_MAX - 1)
 		return (0);
